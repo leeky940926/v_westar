@@ -35,6 +35,10 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'corsheaders',
+<<<<<<< HEAD
+=======
+    'products',
+>>>>>>> a397e1b85d112d4ee4d112f898376a3139d286f6
     # 'django.contrib.admin',
     # 'django.contrib.auth',
     'django.contrib.contenttypes',
