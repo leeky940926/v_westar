@@ -32,7 +32,7 @@ class Product(models.Model) :
     kor_name = models.CharField(max_length=20)
     eng_name = models.CharField(max_length=20)
     desc = models.TextField()
-    nutr = models.OneToOneField('Nut', on_delete=models.CASCADE)
+    nutr = models.ForeignKey('Nut', on_delete=models.CASCADE)
 
     class Meta :
         db_table = 'products'
@@ -51,8 +51,8 @@ class Allergy(models.Model) :
         db_table = 'allergy'
 
 class allergyProducts(models.Model) :
-    allergy = models.OneToOneField('Allergy', on_delete=models.CASCADE)
-    product = models.OneToOneField('Product', on_delete=models.CASCADE)
+    allergy = models.ForeignKey('Allergy', on_delete=models.CASCADE)
+    product = models.ForeignKey('Product', on_delete=models.CASCADE)
 
     class Meta :
         db_table = 'allergyProducts'
