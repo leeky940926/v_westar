@@ -79,8 +79,7 @@ class CategoryView(View) :
     def post(self, request) :
         data = json.loads(request.body)
     
-        if data['menu'] == '1' :
-            Category.objects.create(name=data['name'], menu = Menu.objects.get(id=1))
+        Category.objects.create(name=data['name'], menu = Menu.objects.get(id=int(data['menu'])))
         
         return JsonResponse({'message' : 'created'}, status = 201)
 
@@ -104,13 +103,12 @@ class ProductView(View) :
     
     def post(self, request) :
         data = json.loads(request.body) 
-        if data['category_id'] == '1' :       
-            if data['nutr_id'] == '1' :
-                Product.objects.create(
-                kor_name = data['kor_name'],
-                eng_name = data['eng_name'],
-                desc = data['desc'],
-                category = Category.objects.get(id=int(data['category_id'])),
-                nutr = Nutrition.objects.get(id=int(data['nutr_id']))
+      
+        Product.objects.create(
+        kor_name = data['kor_name'],
+        eng_name = data['eng_name'],
+        desc = data['desc'],
+        category = Category.objects.get(id=int(data['category_id'])),
+        nutr = Nutrition.objects.get(id=int(data['nutr_id']))
             )
         return JsonResponse({'message':'created'}, status=201)
