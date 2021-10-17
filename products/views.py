@@ -55,6 +55,7 @@ class MenusView(View) :
 
     def post(self, request) :
         data = json.loads(request.body)
+      
         name = Menu.objects.create(name=data['name'])
 
         return JsonResponse({'message':'created'}, status=201)
