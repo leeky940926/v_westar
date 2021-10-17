@@ -21,7 +21,7 @@ class Nutrition(models.Model) :
     sugars_g = models.DecimalField(max_digits=6,decimal_places=2)
     protein_g = models.DecimalField(max_digits=6,decimal_places=2)
     caffeine_mg = models.DecimalField(max_digits=6,decimal_places=2)
-    size_ml = models.CharField(max_length=20)
+    size_ml = models.CharField(max_length=30)
     size_fluid_ounce = models.CharField(max_length=20)
 
     class Meta :
